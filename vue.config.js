@@ -7,7 +7,7 @@ module.exports = defineConfig({
    // DEVELOPMENT
     'http://localhost:9998/' :
     // PRODUCTION
-    '',
+    'https://iris-poc-mfe-hydra.herokuapp.com/',
   devServer: { port: 9998 },
   configureWebpack: {
     optimization: {
@@ -24,12 +24,12 @@ module.exports = defineConfig({
           // DEVELOPMENT
           {
             Shell: 'Shell@http://localhost:8080/remoteEntry.js',
-            MfeOne: 'MfeOne@http://localhost:9999/remoteEntry.js'
+            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/'
           } :
           // PRODUCTION
           {
             Shell: 'Shell@http://localhost:8080/remoteEntry.js',
-            MfeOne: 'MfeOne@http://localhost:9999/remoteEntry.js'
+            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/'
           },
         exposes: {
           './MfeTwo': './src/bootstrap.ts',
