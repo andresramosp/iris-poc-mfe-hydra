@@ -1,27 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <h2 class="microfront-title">Micro Frontend Atenea - Tabla de Líneas</h2>
+    <TableCustomers />
+    <SharedComponent
+      style="margin-top: 50px;"
+      :steps="[
+        { name: 'Step One' },
+        { name: 'Step Two' },
+        { name: 'Step Three' },
+      ]"
+    />
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script>
+import TableCustomers from "./components/TableLines.vue";
+import { defineAsyncComponent } from "vue";
+// import { computed } from "vue";
+// import { useStore } from "vuex";
 
-export default defineComponent({
-  name: 'App',
+export default {
+  name: "App",
   components: {
-    HelloWorld
-  }
-});
+    TableCustomers,
+    SharedComponent: defineAsyncComponent(() =>
+      import("MfeOne/SharedComponent")
+    ),
+  },
+  setup() {
+    // const store = useStore();
+
+    // store.dispatch("getCustomers");
+
+    return {};
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
