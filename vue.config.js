@@ -24,12 +24,12 @@ module.exports = defineConfig({
           // DEVELOPMENT
           {
             Shell: 'Shell@http://localhost:8080/remoteEntry.js',
-            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/'
+            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/remoteEntry.js'
           } :
           // PRODUCTION
           {
-            Shell: 'Shell@http://localhost:8080/remoteEntry.js',
-            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/'
+            Shell: 'Shell@https://iris-poc-mfe-shell.herokuapp.com/remoteEntry.js',
+            MfeOne: 'MfeOne@https://iris-poc-mfe-customer.herokuapp.com/remoteEntry.js'
           },
         exposes: {
           './MfeTwo': './src/bootstrap.ts',
